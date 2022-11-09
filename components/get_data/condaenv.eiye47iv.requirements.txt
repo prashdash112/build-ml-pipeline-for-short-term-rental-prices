@@ -1,0 +1,2 @@
+wandb==0.13.2
+wandb-utils==0.1.2
