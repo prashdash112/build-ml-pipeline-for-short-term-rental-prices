@@ -35,21 +35,38 @@ def go(args):
         stratify=df[args.stratify_by] if args.stratify_by != 'none' else None,
     )
 
+    trainval.to_csv('trainval_data.csv', index=False)
+    artifact1 = wandb.Artifact(
+        name="trainval_data",
+        type="trainval_dataset",
+        description="splitted_dataset",
+        )
+    artifact1.add_file('trainval_data.csv')
+    run.log_artifact(artifact1)
+
+    test.to_csv('test_data.csv', index=False)
+    artifact2 = wandb.Artifact(
+        name="test_data",
+        type="test_dataset",
+        description="splitted_dataset",
+        )
+    artifact2.add_file('test_data.csv')
+    run.log_artifact(artifact2)
     # Save to output files
-    for df, k in zip([trainval, test], ['trainval', 'test']):
-        logger.info(f"Uploading {k}_data.csv dataset")
-        with open('split_ddata.csv', 'wb+') as fp:
+    #for df, k in zip([trainval, test], ['trainval', 'test']):
+    #    logger.info(f"Uploading {k}_data.csv dataset")
+    #    with open('split_ddata.csv', 'wb+') as fp:
         #with tempfile.NamedTemporaryFile("wb+",delete=False) as fp:
 
-            df.to_csv(fp.name, index=False)
+        #    df.to_csv(fp.name, index=False)
 
-            log_artifact(
-                f"{k}_data.csv",
-                f"{k}_data",
-                f"{k} split of dataset",
-                fp.name,
-                run,
-            )
+         #   log_artifact(
+         #       f"{k}_data.csv",
+         #       f"{k}_data",
+         #       f"{k} split of dataset",
+         #       fp.name,
+         #       run,
+         #   )
         #fp.close()
         #os.unlink(fp.name)
 
