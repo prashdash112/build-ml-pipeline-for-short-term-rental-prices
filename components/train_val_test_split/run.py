@@ -2,6 +2,7 @@
 """
 This script splits the provided dataframe in test and remainder
 """
+import os
 import argparse
 import logging
 import pandas as pd
@@ -37,7 +38,8 @@ def go(args):
     # Save to output files
     for df, k in zip([trainval, test], ['trainval', 'test']):
         logger.info(f"Uploading {k}_data.csv dataset")
-        with tempfile.NamedTemporaryFile("w") as fp:
+        with open('split_ddata.csv', 'wb+') as fp:
+        #with tempfile.NamedTemporaryFile("wb+",delete=False) as fp:
 
             df.to_csv(fp.name, index=False)
 
@@ -48,9 +50,12 @@ def go(args):
                 fp.name,
                 run,
             )
+        #fp.close()
+        #os.unlink(fp.name)
 
 
 if __name__ == "__main__":
+
     parser = argparse.ArgumentParser(description="Split test and remainder")
 
     parser.add_argument("input", type=str, help="Input artifact to split")
