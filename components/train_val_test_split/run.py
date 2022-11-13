@@ -9,7 +9,6 @@ import pandas as pd
 import wandb
 import tempfile
 from sklearn.model_selection import train_test_split
-from wandb_utils.log_artifact import log_artifact
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
@@ -38,7 +37,7 @@ def go(args):
     trainval.to_csv('trainval_data.csv', index=False)
     artifact1 = wandb.Artifact(
         name="trainval_data",
-        type="trainval_dataset",
+        type="trainval_data",
         description="splitted_dataset",
         )
     artifact1.add_file('trainval_data.csv')
@@ -47,7 +46,7 @@ def go(args):
     test.to_csv('test_data.csv', index=False)
     artifact2 = wandb.Artifact(
         name="test_data",
-        type="test_dataset",
+        type="test_data",
         description="splitted_dataset",
         )
     artifact2.add_file('test_data.csv')
