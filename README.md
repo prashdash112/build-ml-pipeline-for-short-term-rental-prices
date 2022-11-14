@@ -12,6 +12,8 @@ Link: https://wandb.ai/prashdash112/nyc_airbnb_project/overview?workspace=user-p
 
 Link to artifacts: https://wandb.ai/prashdash112/nyc_airbnb_project/artifacts/clean_sample/clean_sample.csv/v0
 
+## Githib link
+Link: https://github.com/prashdash112/build-ml-pipeline-for-short-term-rental-prices
 ## Table of contents
 
 - [Introduction](#build-an-ML-Pipeline-for-Short-Term-Rental-Prices-in-NYC)
