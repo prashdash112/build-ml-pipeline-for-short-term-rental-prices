@@ -9,6 +9,7 @@ In this project you will build such a pipeline.
 ## WandB Project link
 Project: nyc_airbnb_project
 Link: https://wandb.ai/prashdash112/nyc_airbnb_project/overview?workspace=user-prashdash112
+
 Link to artifacts: https://wandb.ai/prashdash112/nyc_airbnb_project/artifacts/clean_sample/clean_sample.csv/v0
 
 ## Table of contents
